@@ -13,10 +13,22 @@
 	<version>0.0.1</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>Joomla 3 Component to upload products and categories to virtuemart 3</description>
-
-	<update> <!-- Runs on update; New since J2.5 -->
+	<!-- Runs on install -->
+	<!-- <install>
+		<sql>
+			<file driver="mysql" charset="utf8">admin/sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install> -->
+	<!-- Runs on uninstall -->
+	<!-- <uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">admin/sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall> -->
+	<update>
+		<!-- Runs on update; New since J2.5 -->
 		<schemas>
-			<schemapath type="mysql">sql/updates/mysql</schemapath>
+			<schemapath type="mysql">admin/sql/updates/mysql/</schemapath>
 		</schemas>
 	</update>
 
@@ -26,12 +38,15 @@
 		in this section are copied from /site/ in the package -->
 	<files folder="site">
 		<filename>index.html</filename>
-		<filename>virtuemart3_upload.php</filename>
+		<filename>virtuemart3upload.php</filename>
+    <filename>controller.php</filename>
+    <folder>views</folder>
+    <folder>models</folder>
 	</files>
 
 	<administration>
 		<!-- Administration Menu Section -->
-		<menu link='index.php?option=com_virtuemart3_upload'>Virtuemart 3 Upload</menu>
+		<menu link='index.php?option=com_virtuemart3upload'>Virtuemart 3 Upload</menu>
 		<!-- Administration Main File Copy Section -->
 		<!-- Note the folder attribute: This attribute describes the folder
 			to copy FROM in the package to install therefore files copied
@@ -39,9 +54,15 @@
 		<files folder="admin">
 			<!-- Admin Main File Copy Section -->
 			<filename>index.html</filename>
-			<filename>virtuemart3_upload.php</filename>
+			<filename>virtuemart3upload.php</filename>
+			<filename>controller.php</filename>
+			<folder>views</folder>
 			<!-- SQL files section -->
 			<folder>sql</folder>
+			<!-- tables files section -->
+			<!-- <folder>tables</folder> -->
+			<!-- models files section -->
+			<!-- <folder>models</folder> -->
 		</files>
 	</administration>
 
